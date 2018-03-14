@@ -10,7 +10,8 @@
  *   - add each card's HTML to the page
  */
 
-// Shuffle function from http://stackoverflow.com/a/2450976
+document.addEventListener('DOMContentLoaded', function () {
+    // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -47,9 +48,13 @@ const bomb = '<i class="fa fa-bomb"></i>';
 
 var iconsArray = [diamond, diamond, plane, plane, anchor, anchor, bolt, bolt, cube, cube, leaf, leaf, bicycle, bicycle, bomb, bomb];
 var shuffledIcons = shuffle(iconsArray);
-
-for (const index in shuffledIcons) {
-    var card = document.querySelector('#card' + index);
-    card.innerHTML = shuffledIcons[index];
+function insertIcons() {
+    for (const index in shuffledIcons) {
+        var card = document.querySelector('#card' + index);
+        card.innerHTML = shuffledIcons[index];
+    }
 }
+
+});
+
 
