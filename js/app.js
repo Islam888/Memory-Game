@@ -47,8 +47,9 @@ const bomb = '<i class="fa fa-bomb"></i>';
 
 var iconsArray = [diamond, diamond, plane, plane, anchor, anchor, bolt, bolt, cube, cube, leaf, leaf, bicycle, bicycle, bomb, bomb];
 var shuffledIcons = shuffle(iconsArray);
-var card = document.querySelector('#card' + index);
+
 for (const index in shuffledIcons) {
-    card.appendChild(shuffledIcons[index]);
+    var card = document.querySelector('#card' + index);
+    card.innerHTML = shuffledIcons[index];
 }
 
