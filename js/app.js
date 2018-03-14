@@ -54,7 +54,7 @@ function insertIcons() {
         card.innerHTML = shuffledIcons[index];
     }
 }
-
+insertIcons();
 });
 
 
