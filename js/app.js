@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //ALL VARIABLES
     //variable of cards list
     const deck = document.querySelector('.deck');
+    const restartButton = document.querySelector('.restart');
     //variables for the cards' icons
     const diamond = '<i class="fa fa-diamond"></i>';
     const plane = '<i class="fa fa-paper-plane-o"></i>';
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (const index in shuffledIcons) {
             const singleCard = document.querySelector('#card' + index);
             singleCard.innerHTML = shuffledIcons[index];
+            singleCard.classList.remove('open', 'show', 'match', 'rotate', 'reverse', 'animated', 'wobble', 'rubberBand');
         }
 
     }
@@ -91,9 +93,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function restart() {
+
+        shuffle(iconsArray);
+        insertIcons();
+        console.log(shuffledIcons);
+    }
+
     //invoke the function to append shuffled icon elements to cards
     insertIcons();
     //click event listener
     deck.addEventListener('click', clickEventListener);
+    restartButton.addEventListener('click', restart);
+
 
 });
