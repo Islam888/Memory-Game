@@ -37,6 +37,7 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
 const diamond = '<i class="fa fa-diamond"></i>';
 const plane = '<i class="fa fa-paper-plane-o"></i>';
 const anchor = '<i class="fa fa-anchor"></i>';
@@ -46,15 +47,45 @@ const leaf = '<i class="fa fa-leaf"></i>';
 const bicycle = '<i class="fa fa-bicycle"></i>';
 const bomb = '<i class="fa fa-bomb"></i>';
 
-var iconsArray = [diamond, diamond, plane, plane, anchor, anchor, bolt, bolt, cube, cube, leaf, leaf, bicycle, bicycle, bomb, bomb];
-var shuffledIcons = shuffle(iconsArray);
+const iconsArray = [diamond, diamond, plane, plane, anchor, anchor, bolt, bolt, cube, cube, leaf, leaf, bicycle, bicycle, bomb, bomb];
+const shuffledIcons = shuffle(iconsArray);
 function insertIcons() {
     for (const index in shuffledIcons) {
-        var card = document.querySelector('#card' + index);
-        card.innerHTML = shuffledIcons[index];
+        const singleCard = document.querySelector('#card' + index);
+        singleCard.innerHTML = shuffledIcons[index];
     }
+    
 }
 insertIcons();
+const cards = document.getElementsByClassName('card');
+const open = document.getElementsByClassName('open');
+
+for (const card of cards) {
+    function clickEventListener () {
+            card.classList.remove('reverse');
+            card.classList.add('open', 'show', 'rotate');
+            if (open.length == 2) {
+                card.removeEventListener('click', clickEventListener);
+                console.log(open[0], open[1]);
+                if (open[0].innerHTML == open[1].innerHTML) {
+                    open[0].classList.replace('open', 'match');
+                    open[0].classList.replace('open', 'match');
+                } else {          
+                    window.setTimeout(function () {open[0].classList.add('reverse'); }, 1000);
+                    window.setTimeout(function () {open[1].classList.add('reverse'); }, 1000);
+                    window.setTimeout(function () {open[0].classList.remove('open', 'show', 'rotate'); }, 1000);
+                    window.setTimeout(function () {open[0].classList.remove('open', 'show', 'rotate'); }, 1000);
+                }
+            }
+    
+        }
+        
+        card.addEventListener('click', clickEventListener);
+
+    }
+
+
 });
 
 
+    
