@@ -72,41 +72,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (clickedElement.nodeName == 'LI') {    
             if (openCards.length == 0) {
-                clickedElement.classList.remove('reverse'); 
-                clickedElement.classList.remove('wobble'); 
+                clickedElement.classList.remove('reverse', 'animated','wobble'); 
                 clickedElement.classList.add('open', 'show', 'rotate');
                 openCards = deck.querySelectorAll('.open');
                 console.log(openCards.length);
 
             }else if (openCards.length == 1){
-                clickedElement.classList.remove('reverse'); 
-                clickedElement.classList.remove('wobble'); 
+                clickedElement.classList.remove('reverse', 'animated','wobble'); 
                 clickedElement.classList.add('open', 'show', 'rotate'); 
                 openCards = deck.querySelectorAll('.open');
                 console.log(openCards.length);
         
                 if (openCards[0].innerHTML == openCards[1].innerHTML){
                     console.log('equal');
-                    openCards[1].classList.add('rubberBand');
+                    openCards[1].classList.add('animated','rubberBand');
                     openCards[1].classList.replace('open', 'match'); 
-                    openCards[0].classList.add('rubberBand');
+                    openCards[0].classList.add('animated','rubberBand');
                     openCards[0].classList.replace('open', 'match'); 
                     
                 }else{
                     window.setTimeout(function() {
-                        openCards[1].classList.add('wobble');
-                        openCards[1].classList.replace('rotate','reverse');
-                    }, 1000);
+                        openCards[1].classList.add('red-background','animated', 'wobble');
+                    }, 400);
                     window.setTimeout(function() {
-                        openCards[0].classList.add('wobble');
+                        openCards[0].classList.add('red-background','animated','wobble');
+                    }, 400);
+                    window.setTimeout(function() {
+                        openCards[1].classList.replace('rotate', 'reverse');
+                    }, 1250);
+                    window.setTimeout(function() {
                         openCards[0].classList.replace('rotate','reverse');
-                    }, 1000);
+                    }, 1250);
                     window.setTimeout(function() {
-                        openCards[1].classList.remove('open', 'show');
-                    }, 1000);
+                        openCards[1].classList.remove('red-background','show', 'open');
+                    }, 1200);
                     window.setTimeout(function() {
-                        openCards[0].classList.remove('open', 'show');
-                    }, 1000);
+                        openCards[0].classList.remove('red-background','show', 'open');
+                    }, 1200);
                     console.log('un');
                 }
             }
