@@ -84,7 +84,7 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: orange;
+    background: #02ccba;
     font-size: 33px;
 }
 
@@ -115,6 +115,6 @@ h1 {
     cursor: pointer;
 }
 
-.red-background {
-    background: red;
+.deck .card.red-background  {
+    background: rgb(175, 0, 0);
 }
