@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
     }
-    
+
     function clickEventListener(evt) {
         const clickedElement = evt.target;
         let openCards = deck.querySelectorAll('.open');
@@ -107,6 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function restart() {
         shuffle(iconsArray);
         insertIcons();
+        movesNumber = 0;
+        movesCounter.textContent = movesNumber;
     }
 
     //invoke the function to append shuffled icon elements to cards
