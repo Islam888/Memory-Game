@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     //ALL VARIABLES
     //variable of cards list
     const deck = document.querySelector('.deck');
+    //variable for restart button
     const restartButton = document.querySelector('.restart');
+    //variable for counting moves number
+    let movesNumber = 0;
     //variables for the cards' icons
     const diamond = '<i class="fa fa-diamond"></i>';
     const plane = '<i class="fa fa-paper-plane-o"></i>';
@@ -13,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const leaf = '<i class="fa fa-leaf"></i>';
     const bicycle = '<i class="fa fa-bicycle"></i>';
     const bomb = '<i class="fa fa-bomb"></i>';
+    const movesCounter = document.querySelector('.moves');
     //array of icons
     const iconsArray = [diamond, diamond, plane, plane, anchor, anchor, bolt, bolt, cube, cube, leaf, leaf, bicycle, bicycle, bomb, bomb];
     //shuffle array
@@ -47,8 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function clickEventListener(evt) {
         const clickedElement = evt.target;
         let openCards = deck.querySelectorAll('.open');
-
         if (clickedElement.nodeName == 'LI') {
+            //increment moves number with every click on cards.
+            
+            if ((!clickedElement.classList.contains('open')) && ((!clickedElement.classList.contains('match')))){
+                movesNumber++;
+                movesCounter.textContent = movesNumber;
+                console.log("a move");
+            }
             if (openCards.length == 0) {
                 clickedElement.classList.remove('reverse', 'animated', 'wobble');
                 clickedElement.classList.add('open', 'show', 'rotate');
@@ -61,14 +71,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 openCards = deck.querySelectorAll('.open');
                 console.log(openCards.length);
 
-                if (openCards[0].innerHTML == openCards[1].innerHTML) {
+                if ((openCards.length == 2) && (openCards[0].innerHTML == openCards[1].innerHTML)) {
                     console.log('equal');
                     openCards[1].classList.add('animated', 'rubberBand');
                     openCards[1].classList.replace('open', 'match');
                     openCards[0].classList.add('animated', 'rubberBand');
                     openCards[0].classList.replace('open', 'match');
 
-                } else {
+                } else if ((openCards.length == 2) && (openCards[0].innerHTML !== openCards[1].innerHTML)) {
                     window.setTimeout(function() {
                         openCards[1].classList.add('red-background', 'animated', 'wobble');
                     }, 400);
@@ -91,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+         
     }
 
     function restart() {
