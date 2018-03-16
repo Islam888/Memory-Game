@@ -55,11 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const clickedElement = evt.target;
         let openCards = deck.querySelectorAll('.open');
         if (clickedElement.nodeName == 'LI') {      
-            if ((!clickedElement.classList.contains('open')) && (!clickedElement.classList.contains('match'))){
-                //increment moves number with every click on cards that are not opened
-                movesNumber++;
-                movesCounter.textContent = movesNumber;
-            }
+            
             if (openCards.length == 0) {
                 clickedElement.classList.remove('reverse', 'animated', 'wobble');
                 clickedElement.classList.add('open', 'show', 'rotate');
@@ -78,6 +74,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     openCards[1].classList.replace('open', 'match');
                     openCards[0].classList.add('animated', 'rubberBand');
                     openCards[0].classList.replace('open', 'match');
+                    window.setTimeout(function() {
+                        
+                            movesNumber+=2;
+                            movesCounter.textContent = movesNumber;
+
+                    }, 100);
 
                 } else if ((openCards.length == 2) && (openCards[0].innerHTML !== openCards[1].innerHTML)) {
                     window.setTimeout(function() {
@@ -98,6 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.setTimeout(function() {
                         openCards[0].classList.remove('red-background', 'show', 'open');
                     }, 1200);
+                    window.setTimeout(function() {
+                        if ((!clickedElement.classList.contains('open')) && (!clickedElement.classList.contains('match'))){
+                            //increment moves number with every click on cards that are not opened
+                            movesNumber+=2;
+                            movesCounter.textContent = movesNumber;
+                        }
+                    }, 1250);
                 }
             }
         }
