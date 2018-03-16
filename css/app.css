@@ -118,3 +118,8 @@ h1 {
 .deck .card.red-background  {
     background: rgb(175, 0, 0);
 }
+
+
+.gold-star {
+    color: rgb(241, 206, 2);
+}
