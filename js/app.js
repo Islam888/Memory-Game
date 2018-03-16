@@ -94,10 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function restart() {
-
         shuffle(iconsArray);
         insertIcons();
-        console.log(shuffledIcons);
     }
 
     //invoke the function to append shuffled icon elements to cards
