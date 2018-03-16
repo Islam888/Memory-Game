@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const iconsArray = [diamond, diamond, plane, plane, anchor, anchor, bolt, bolt, cube, cube, leaf, leaf, bicycle, bicycle, bomb, bomb];
     //shuffle array
     const shuffledIcons = shuffle(iconsArray);
+    //variables for selecting every single star
+    const firstStar = stars.getElementsByTagName('li')[2].firstElementChild;
+    const secondStar = stars.getElementsByTagName('li')[1].firstElementChild;
+    const thirdStar = stars.getElementsByTagName('li')[0].firstElementChild;
+
     //ALL FUNCTIONS
     // Shuffle function from http://stackoverflow.com/a/2450976
     function shuffle(array) {
@@ -78,9 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                             movesNumber+=2;
                             movesCounter.textContent = movesNumber;
+                            //to calculate the star level
+                            starsLevel()
 
                     }, 100);
-
                 } else if ((openCards.length == 2) && (openCards[0].innerHTML !== openCards[1].innerHTML)) {
                     window.setTimeout(function() {
                         openCards[1].classList.add('red-background', 'animated', 'wobble');
@@ -105,6 +111,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             //increment moves number with every click on cards that are not opened
                             movesNumber+=2;
                             movesCounter.textContent = movesNumber;
+                            //to calculate the star level
+                            starsLevel()
+
                         }
                     }, 1250);
                 }
@@ -118,6 +127,20 @@ document.addEventListener('DOMContentLoaded', function() {
         insertIcons();
         movesNumber = 0;
         movesCounter.textContent = movesNumber;
+        firstStar.classList.add('gold-star');
+        secondStar.classList.add('gold-star');
+        thirdStar.classList.add('gold-star');
+
+    }
+    //to calculate the star level
+    function starsLevel() {
+        if (movesNumber > 28){
+            firstStar.classList.remove('gold-star');
+        }else if (movesNumber > 38) {
+            secondStar.classList.remove('gold-star');
+        }else if (movesNumber > 46) {
+            thirdStar.classList.remove('gold-star');
+        }
     }
 
     //invoke the function to append shuffled icon elements to cards
