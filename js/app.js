@@ -16,7 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const leaf = '<i class="fa fa-leaf"></i>';
     const bicycle = '<i class="fa fa-bicycle"></i>';
     const bomb = '<i class="fa fa-bomb"></i>';
+    //variable to count numbers of moves
     const movesCounter = document.querySelector('.moves');
+    //variable for selecting stars list
+    const stars = document.querySelector('.stars');
     //array of icons
     const iconsArray = [diamond, diamond, plane, plane, anchor, anchor, bolt, bolt, cube, cube, leaf, leaf, bicycle, bicycle, bomb, bomb];
     //shuffle array
@@ -47,17 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
     }
-
+    
     function clickEventListener(evt) {
         const clickedElement = evt.target;
         let openCards = deck.querySelectorAll('.open');
-        if (clickedElement.nodeName == 'LI') {
-            //increment moves number with every click on cards.
-            
-            if ((!clickedElement.classList.contains('open')) && ((!clickedElement.classList.contains('match')))){
+        if (clickedElement.nodeName == 'LI') {      
+            if ((!clickedElement.classList.contains('open')) && (!clickedElement.classList.contains('match'))){
+                //increment moves number with every click on cards that are not opened
                 movesNumber++;
                 movesCounter.textContent = movesNumber;
-                console.log("a move");
             }
             if (openCards.length == 0) {
                 clickedElement.classList.remove('reverse', 'animated', 'wobble');
@@ -97,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.setTimeout(function() {
                         openCards[0].classList.remove('red-background', 'show', 'open');
                     }, 1200);
-                    console.log('un');
                 }
             }
         }
