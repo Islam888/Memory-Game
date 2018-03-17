@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const secondStar = stars.getElementsByTagName('li')[1].firstElementChild;
     const thirdStar = stars.getElementsByTagName('li')[0].firstElementChild;
 
+    const watch = document.getElementById('watch');
+    let sec = 1;
+    let min = 0;
+    var stopwatch;
+
     //ALL FUNCTIONS
     // Shuffle function from http://stackoverflow.com/a/2450976
     function shuffle(array) {
@@ -59,19 +64,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function clickEventListener(evt) {
         const clickedElement = evt.target;
         let openCards = deck.querySelectorAll('.open');
+
         if (clickedElement.nodeName == 'LI') {      
-            
+            timer();
             if (openCards.length == 0) {
                 clickedElement.classList.remove('reverse', 'animated', 'wobble');
                 clickedElement.classList.add('open', 'show', 'rotate');
                 openCards = deck.querySelectorAll('.open');
-                console.log(openCards.length);
+               
 
             } else if (openCards.length == 1) {
                 clickedElement.classList.remove('reverse', 'animated', 'wobble');
                 clickedElement.classList.add('open', 'show', 'rotate');
                 openCards = deck.querySelectorAll('.open');
-                console.log(openCards.length);
+               
 
                 if ((openCards.length == 2) && (openCards[0].innerHTML == openCards[1].innerHTML)) {
                     console.log('equal');
@@ -79,37 +85,37 @@ document.addEventListener('DOMContentLoaded', function() {
                     openCards[1].classList.replace('open', 'match');
                     openCards[0].classList.add('animated', 'rubberBand');
                     openCards[0].classList.replace('open', 'match');
-                    window.setTimeout(function() {
+                    setTimeout(function() {
                         
-                            movesNumber+=2;
+                            movesNumber++;
                             movesCounter.textContent = movesNumber;
                             //to calculate the star level
                             starsLevel()
 
                     }, 100);
                 } else if ((openCards.length == 2) && (openCards[0].innerHTML !== openCards[1].innerHTML)) {
-                    window.setTimeout(function() {
+                    setTimeout(function() {
                         openCards[1].classList.add('red-background', 'animated', 'wobble');
                     }, 400);
-                    window.setTimeout(function() {
+                    setTimeout(function() {
                         openCards[0].classList.add('red-background', 'animated', 'wobble');
                     }, 400);
-                    window.setTimeout(function() {
+                    setTimeout(function() {
                         openCards[1].classList.replace('rotate', 'reverse');
                     }, 1250);
-                    window.setTimeout(function() {
+                    setTimeout(function() {
                         openCards[0].classList.replace('rotate', 'reverse');
                     }, 1250);
-                    window.setTimeout(function() {
+                    setTimeout(function() {
                         openCards[1].classList.remove('red-background', 'show', 'open');
                     }, 1200);
-                    window.setTimeout(function() {
+                    setTimeout(function() {
                         openCards[0].classList.remove('red-background', 'show', 'open');
                     }, 1200);
-                    window.setTimeout(function() {
+                    setTimeout(function() {
                         if ((!clickedElement.classList.contains('open')) && (!clickedElement.classList.contains('match'))){
                             //increment moves number with every click on cards that are not opened
-                            movesNumber+=2;
+                            movesNumber++;
                             movesCounter.textContent = movesNumber;
                             //to calculate the star level
                             starsLevel()
@@ -134,11 +140,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     //to calculate the star level
     function starsLevel() {
-        if (movesNumber > 28){
+        if (movesNumber > 14){
             firstStar.classList.remove('gold-star');
-        }else if (movesNumber > 38) {
+        }else if (movesNumber > 20) {
             secondStar.classList.remove('gold-star');
-        }else if (movesNumber > 46) {
+        }else if (movesNumber > 26) {
             thirdStar.classList.remove('gold-star');
         }
     }
@@ -149,5 +155,36 @@ document.addEventListener('DOMContentLoaded', function() {
     deck.addEventListener('click', clickEventListener);
     restartButton.addEventListener('click', restart);
 
+
+    //function to start timer
+    function timer() {
+        if (stopwatch) {
+            clearInterval(stopwatch);
+        }
+        stopwatch = setInterval(function() {
+            if (min > 9) {
+              if (sec > 59) {
+                 sec = 0;
+                 min++;
+                 watch.textContent =  min + ":0" + sec;
+             } else if (sec > 9) {
+                 watch.textContent =  min + ":" + sec;
+             } else {
+                 watch.textContent =  min + ":0" + sec;
+             }
+            }else{
+               if (sec > 59) {
+                 sec = 0;
+                 min++;
+                 watch.textContent = "0" + min + ":0" + sec;
+             } else if (sec > 9) {
+                 watch.textContent = "0" + min + ":" + sec;
+             } else {
+                 watch.textContent = "0" + min + ":0" + sec;
+             }
+            }
+             sec++;
+         }, 1000);
+    }
 
 });
