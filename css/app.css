@@ -26,6 +26,11 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
+}
+.blur {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
 }
 
 h1 {
@@ -142,6 +147,46 @@ h1 {
     box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
     padding: 5px 8px;
 }
+
+.congrats {
+    background: #02ccba;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 500px;
+    height: 350px;
+    margin: -175px 0 0 -250px; 
+    border-radius: 10px;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;  
+}
+.hide {
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+    background-color: #2e3d49;
+    border: none;
+    transition: 0.5s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
 
 
 
