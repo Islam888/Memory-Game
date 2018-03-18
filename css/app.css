@@ -1,26 +1,20 @@
 html {
     box-sizing: border-box;
 }
-
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: inherit;
 }
-
-html,
-body {
+html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0;  
+    padding: 0;
 }
-
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/geometry2.png');
+   /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
 }
-
 /*flexbox container*/
 .container {
     display: flex;
@@ -28,23 +22,17 @@ body {
     align-items: center;
     flex-direction: column;
 }
-
 /*add blurring effect to the container after finishing a game*/
 .blur {
     filter: blur(5px);
     -webkit-filter: blur(5px);
 }
-
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     margin: 10px 0;
 }
-
-/*
- * Styles for the deck of cards
- */
-
+/* * Styles for the deck of cards */
 .deck {
     width: 560px;
     height: 580px;
@@ -58,7 +46,6 @@ h1 {
     align-items: center;
     margin: 0 0 3em;
 }
-
 .card {
     height: 106px;
     width: 106px;
@@ -72,7 +59,6 @@ h1 {
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
-
 .open {
     background: #02b3e4;
     cursor: default;
@@ -85,62 +71,46 @@ h1 {
     transform: rotateY(0);
     transition: 0.7s;
 }
-
 .show {
     font-size: 33px;
 }
-
 .match {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
 }
-
-.red-background  {
+.red-background {
     background: rgb(175, 0, 0);
 }
-
-/*
- * Styles for the Score Panel
- */
-
+/* * Styles for the Score Panel */
 .score-panel {
     text-align: left;
     width: 500px;
     margin-bottom: 10px;
 }
-
 .stars {
-    margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
 }
-
 .stars li {
     list-style: none;
     display: inline-block;
 }
-
 #watch {
     display: inline-block;
     margin-left: 30px;
 }
-
-.score-panel .restart {
+.restart {
     float: right;
     cursor: pointer;
 }
-
 .restart-rotate {
     transition: 1s ease-in-out;
 }
-
 .restart-rotate:hover {
     transform: rotate(360deg);
 }
-
-
 .gold-star {
     color: rgb(241, 206, 2);
 }
@@ -150,7 +120,6 @@ h1 {
     box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
     padding: 5px 8px;
 }
-
 .congrats {
     background: #2e3d49;
     top: 50%;
@@ -158,7 +127,7 @@ h1 {
     position: absolute;
     width: 500px;
     height: 350px;
-    margin: -175px 0 0 -250px; 
+    margin: -175px 0 0 -250px;
     border-radius: 10px;
     color: white;
     font-size: 20px;
@@ -166,7 +135,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    flex-direction: column;  
+    flex-direction: column;
 }
 .congrats>* {
     margin-bottom: 10px;
@@ -174,7 +143,6 @@ h1 {
 .hide {
     display: none;
 }
-
 button {
     padding: 10px 20px;
     text-align: center;
@@ -188,24 +156,19 @@ button {
     transition: 0.5s;
     display: block;
 }
-
 button:hover {
     transform: scale(1.05);
 }
-
 .stars-message {
-    margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
     color: black;
 }
-
 .stars-message li {
     list-style: none;
     display: inline-block;
 }
-
 /*media query for iphone7plus, iphone8plus, Nexus6, and other large mobiles*/
 @media screen and (max-width:414px) {
     .deck {
@@ -213,87 +176,83 @@ button:hover {
         height: 430px;
         padding: 10px;
         margin: 0;
-        
-    }
+   }
     .deck .card {
         height: 90px;
         width: 90px;
-    }
+   }
     .score-panel {
         width: 380px;
-    }
+   }
     #watch {
         margin-left: 10px;
-    }
+   }
     h1 {
         font-weight: 200;
         margin: 5px 0;
-    }
+   }
     .score-panel .restart {
         font-size: 14px;
-    }
+   }
 }
-
 /*media query for iphone X, Nexus5, Galaxy Note, and similar devices*/
 @media screen and (max-width: 375px) {
     .deck {
         width:95%;
-    }
+   }
     .deck .card {
         height: 75px;
         width: 75px;
-    }
+   }
     .score-panel {
         width: 90%;
-    }
+   }
     #watch {
         margin-left: 5px;
-    }
+   }
     h1 {
         font-weight: 200;
         margin: 5px 0;
-    }
+   }
     .congrats {
         width: 300px;
         height: 200px;
-        margin: -100px 0 0 -150px; 
+        margin: -100px 0 0 -150px;
         border-radius: 10px;
-        font-size: 16px; 
-    }
+        font-size: 16px;
+   }
     .hide {
         display: none;
-    }
+   }
 }
-
 /*media query for iphone5, iphone4, and small devices*/
 @media screen and (max-width: 350px) {
     .deck {
         width:90%;
         height: 350px;
-    }
+   }
     .deck .card {
         height: 60px;
         width: 60px;
-    }
+   }
     .score-panel {
         width: 90%;
-    }
+   }
     #watch {
         margin-left: 5px;
-    }
+   }
     h1 {
         font-weight: 100;
         margin: 3px 0;
-    }
+   }
     .congrats {
         width: 250px;
         height: 180px;
-        margin: -90px 0 0 -125px; 
+        margin: -90px 0 0 -125px;
         border-radius: 5px;
-        font-size: 12px; 
-    }
+        font-size: 12px;
+   }
     .hide {
         display: none;
-    }
+   }
 }
-
