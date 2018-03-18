@@ -2,19 +2,29 @@
 
 ## Table of Contents
 
+* [Description](#discription)
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [License](#license)
+
+## Description
+- A Udacity Front End Nanodegree program project.
+- A memory game consists of 8 eight different pairs of cards with different symbols that are arranged randomly in a grid with the symbol face down. We are trying to find matched pairs of cards.
+- The game web application is responsive and can be played over any device.
 
 ## Instructions
+1. Flip over two hidden cards at a time to locate the ones that match. The rating of the player is build on:
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+   - Number of moves to complete the game.
+   - Time taked to complete the game.
+   
+2. Player can restart game at any point by clicking over restart button.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## License
+- This project is licensed under the terms of the [MIT](https://choosealicense.com/licenses/mit/) license.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
 
-## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+
