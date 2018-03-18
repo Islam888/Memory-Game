@@ -194,6 +194,27 @@ button:hover {
     .score-panel .restart {
         font-size: 14px;
    }
+    .congrats {
+        width: 400px;
+        height: 350px;
+        margin: -175px 0 0 -200px;
+        border-radius: 8px;
+        font-size: 18px;
+   }
+    .congrats>* {
+        margin-bottom: 5px;
+   }
+    .hide {
+        display: none;
+   }
+    button {
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+   }
 }
 /*media query for iphone X, Nexus5, Galaxy Note, and similar devices*/
 @media screen and (max-width: 375px) {
@@ -220,6 +241,14 @@ button:hover {
         margin: -100px 0 0 -150px;
         border-radius: 10px;
         font-size: 16px;
+   }
+    .hide {
+        display: none;
+   }
+    .congrats {
+        width: 350px;
+        height: 300px;
+        margin: -150px 0 0 -175px;
    }
     .hide {
         display: none;
