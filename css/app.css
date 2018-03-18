@@ -21,12 +21,15 @@ body {
     font-family: 'Coda', cursive;
 }
 
+/*flexbox container*/
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
+/*add blurring effect to the container after finishing a game*/
 .blur {
     filter: blur(5px);
     -webkit-filter: blur(5px);
@@ -35,6 +38,7 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+    margin: 10px 0;
 }
 
 /*
@@ -42,8 +46,8 @@ h1 {
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
+    width: 560px;
+    height: 580px;
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 32px;
     border-radius: 10px;
@@ -55,9 +59,9 @@ h1 {
     margin: 0 0 3em;
 }
 
-.deck .card {
-    height: 125px;
-    width: 125px;
+.card {
+    height: 106px;
+    width: 106px;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -69,7 +73,7 @@ h1 {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
-.deck .card.open {
+.open {
     background: #02b3e4;
     cursor: default;
 }
@@ -82,17 +86,17 @@ h1 {
     transition: 0.7s;
 }
 
-.deck .card.show {
+.show {
     font-size: 33px;
 }
 
-.deck .card.match {
+.match {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
 }
 
-.deck .card.red-background  {
+.red-background  {
     background: rgb(175, 0, 0);
 }
 
@@ -118,7 +122,7 @@ h1 {
     display: inline-block;
 }
 
-.score-panel #watch {
+#watch {
     display: inline-block;
     margin-left: 30px;
 }
@@ -202,6 +206,94 @@ button:hover {
     display: inline-block;
 }
 
+/*media query for iphone7plus, iphone8plus, Nexus6, and other large mobiles*/
+@media screen and (max-width:414px) {
+    .deck {
+        width:410px;
+        height: 430px;
+        padding: 10px;
+        margin: 0;
+        
+    }
+    .deck .card {
+        height: 90px;
+        width: 90px;
+    }
+    .score-panel {
+        width: 380px;
+    }
+    #watch {
+        margin-left: 10px;
+    }
+    h1 {
+        font-weight: 200;
+        margin: 5px 0;
+    }
+    .score-panel .restart {
+        font-size: 14px;
+    }
+}
 
+/*media query for iphone X, Nexus5, Galaxy Note, and similar devices*/
+@media screen and (max-width: 375px) {
+    .deck {
+        width:95%;
+    }
+    .deck .card {
+        height: 75px;
+        width: 75px;
+    }
+    .score-panel {
+        width: 90%;
+    }
+    #watch {
+        margin-left: 5px;
+    }
+    h1 {
+        font-weight: 200;
+        margin: 5px 0;
+    }
+    .congrats {
+        width: 300px;
+        height: 200px;
+        margin: -100px 0 0 -150px; 
+        border-radius: 10px;
+        font-size: 16px; 
+    }
+    .hide {
+        display: none;
+    }
+}
 
+/*media query for iphone5, iphone4, and small devices*/
+@media screen and (max-width: 350px) {
+    .deck {
+        width:90%;
+        height: 350px;
+    }
+    .deck .card {
+        height: 60px;
+        width: 60px;
+    }
+    .score-panel {
+        width: 90%;
+    }
+    #watch {
+        margin-left: 5px;
+    }
+    h1 {
+        font-weight: 100;
+        margin: 3px 0;
+    }
+    .congrats {
+        width: 250px;
+        height: 180px;
+        margin: -90px 0 0 -125px; 
+        border-radius: 5px;
+        font-size: 12px; 
+    }
+    .hide {
+        display: none;
+    }
+}
 
