@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const movesCounter = document.querySelector('.moves');
     //variable for selecting stars list
     const stars = document.querySelector('.stars');
+    const starsMessage = document.querySelector('.stars-message');
     //array of icons
     const iconsArray = [diamond, diamond, plane, plane, anchor, anchor, bolt, bolt, cube, cube, leaf, leaf, bicycle, bicycle, bomb, bomb];
     //shuffle array
@@ -28,12 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const firstStar = stars.getElementsByTagName('li')[2].firstElementChild;
     const secondStar = stars.getElementsByTagName('li')[1].firstElementChild;
     const thirdStar = stars.getElementsByTagName('li')[0].firstElementChild;
-
+    const firstStarMessage = starsMessage.getElementsByTagName('li')[2].firstElementChild;
+    const secondStarMessage = starsMessage.getElementsByTagName('li')[1].firstElementChild;
+    const thirdStarMessage = starsMessage.getElementsByTagName('li')[0].firstElementChild;
+    const matchedCards = document.getElementsByClassName('match');
     const watch = document.getElementById('watch');
+    const container = document.querySelector('.container');
+    const congrats = document.querySelector('.congrats');
+    const button = document.querySelector('button');
+    const movesMessage = document.querySelector('.moves-message');
+    const timeMessage = document.querySelector('.time-message');
     let sec = 1;
     let min = 0;
     var stopwatch;
-
     //ALL FUNCTIONS
     // Shuffle function from http://stackoverflow.com/a/2450976
     function shuffle(array) {
@@ -63,28 +71,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function clickEventListener(evt) {
         const clickedElement = evt.target;
+        
+        deck.addEventListener('click', clickEventListener);
         let openCards = deck.querySelectorAll('.open');
-
-        if (clickedElement.nodeName == 'LI') {      
+        
+        if (clickedElement.nodeName == 'LI') {     
             timer();
             if (openCards.length == 0) {
                 clickedElement.classList.remove('reverse', 'animated', 'wobble');
-                clickedElement.classList.add('open', 'show', 'rotate');
+                if (!clickedElement.classList.contains('match')) {
+                    clickedElement.classList.add('open', 'show', 'rotate');
+                } 
                 openCards = deck.querySelectorAll('.open');
                
 
             } else if (openCards.length == 1) {
                 clickedElement.classList.remove('reverse', 'animated', 'wobble');
-                clickedElement.classList.add('open', 'show', 'rotate');
+                if (!clickedElement.classList.contains('match')) {
+                    clickedElement.classList.add('open', 'show', 'rotate');
+                }
                 openCards = deck.querySelectorAll('.open');
                
 
                 if ((openCards.length == 2) && (openCards[0].innerHTML == openCards[1].innerHTML)) {
                     console.log('equal');
+                    console.log(matchedCards.length);
+                    
                     openCards[1].classList.add('animated', 'rubberBand');
                     openCards[1].classList.replace('open', 'match');
                     openCards[0].classList.add('animated', 'rubberBand');
                     openCards[0].classList.replace('open', 'match');
+                    gameEnd();
                     setTimeout(function() {
                         
                             movesNumber++;
@@ -134,27 +151,41 @@ document.addEventListener('DOMContentLoaded', function() {
         movesNumber = 0;
         movesCounter.textContent = movesNumber;
         firstStar.classList.add('gold-star');
+        firstStarMessage.classList.add('gold-star');
         secondStar.classList.add('gold-star');
+        secondStarMessage.classList.add('gold-star');
         thirdStar.classList.add('gold-star');
-
+        thirdStarMessage.classList.add('gold-star');
+        clearInterval(stopwatch);
+        watch.textContent = "00:00";
+        sec = 1;
+        min = 0;
     }
     //to calculate the star level
     function starsLevel() {
         if (movesNumber > 14){
             firstStar.classList.remove('gold-star');
+            firstStarMessage.classList.remove('gold-star');
         }else if (movesNumber > 20) {
             secondStar.classList.remove('gold-star');
+            secondStarMessage.classList.remove('gold-star');
         }else if (movesNumber > 26) {
             thirdStar.classList.remove('gold-star');
+            thirdStarMessage.classList.remove('gold-star');
         }
     }
 
+    function playAgain() {
+        container.classList.remove('blur');
+        congrats.classList.add('hide');
+        restart();
+    }
     //invoke the function to append shuffled icon elements to cards
     insertIcons();
     //click event listener
     deck.addEventListener('click', clickEventListener);
     restartButton.addEventListener('click', restart);
-
+    button.addEventListener('click', playAgain);
 
     //function to start timer
     function timer() {
@@ -186,5 +217,22 @@ document.addEventListener('DOMContentLoaded', function() {
              sec++;
          }, 1000);
     }
+
+    function gameEnd() {
+        if (matchedCards.length == 16){
+            console.log(matchedCards.length);
+            const time = watch.textContent;
+            clearInterval(stopwatch);
+            watch.textContent = "00:00";    
+            sec = 1;
+            min = 0;
+            container.classList.add('blur');
+            congrats.classList.remove('hide');
+            movesMessage.textContent = "Completed in: " + movesNumber + " moves"; 
+            timeMessage.textContent = "Time: " + time; 
+            Console.log(time);
+        }
+    }
+     
 
 });
