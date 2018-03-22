@@ -104,6 +104,10 @@ h1 {
 .restart {
     float: right;
     cursor: pointer;
+    background: #02ccba;
+    border-radius: 5px;
+    box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
+    padding: 5px 8px;
 }
 .restart-rotate {
     transition: 1s ease-in-out;
@@ -114,12 +118,7 @@ h1 {
 .gold-star {
     color: rgb(241, 206, 2);
 }
-.restart {
-    background: #02ccba;
-    border-radius: 5px;
-    box-shadow: 6px 7px 10px 0 rgba(46, 61, 73, 0.5);
-    padding: 5px 8px;
-}
+
 .congrats {
     background: #2e3d49;
     top: 50%;
@@ -169,20 +168,36 @@ button:hover {
     list-style: none;
     display: inline-block;
 }
-/*media query for iphone7plus, iphone8plus, Nexus6, and other large mobiles*/
-@media screen and (max-width:414px) {
+
+@media screen and (max-width: 610px) {
     .deck {
-        width:410px;
-        height: 430px;
+        width:500px;
+        height: 500px;
         padding: 10px;
         margin: 0;
    }
-    .deck .card {
+    .card {
+        height: 100px;
+        width: 100px;
+   }
+    .score-panel {
+        width: 420px;
+   }    
+}
+
+@media screen and (max-width: 550px) {
+    .deck {
+        width: 450px;
+        height: 450px;
+        padding: 10px;
+        margin: 0;
+   }
+    .card {
         height: 90px;
         width: 90px;
    }
     .score-panel {
-        width: 380px;
+        width: 80%;
    }
     #watch {
         margin-left: 10px;
@@ -191,7 +206,7 @@ button:hover {
         font-weight: 200;
         margin: 5px 0;
    }
-    .score-panel .restart {
+    .restart {
         font-size: 14px;
    }
     .congrats {
@@ -216,72 +231,91 @@ button:hover {
         border-radius: 5px;
    }
 }
-/*media query for iphone X, Nexus5, Galaxy Note, and similar devices*/
-@media screen and (max-width: 375px) {
+
+@media screen and (max-width: 480px) {
     .deck {
-        width:95%;
+        width: 380px;
+        height: 380px;
+        padding: 8px;
+        box-shadow: none;
    }
-    .deck .card {
-        height: 75px;
-        width: 75px;
-   }
+   .card {
+    height: 80px;
+    width: 80px;
+    }
     .score-panel {
-        width: 90%;
+        width: 80%;
    }
-    #watch {
-        margin-left: 5px;
-   }
+    .restart {
+        box-shadow: none;
+        font-size: 14px;
+    }
     h1 {
-        font-weight: 200;
-        margin: 5px 0;
-   }
-    .congrats {
-        width: 300px;
-        height: 200px;
-        margin: -100px 0 0 -150px;
-        border-radius: 10px;
-        font-size: 16px;
-   }
-    .hide {
-        display: none;
-   }
-    .congrats {
-        width: 350px;
-        height: 300px;
-        margin: -150px 0 0 -175px;
-   }
-    .hide {
-        display: none;
-   }
+        font-size: 1.5em;
+    }
 }
-/*media query for iphone5, iphone4, and small devices*/
-@media screen and (max-width: 350px) {
+
+@media screen and (max-width: 400px) {
     .deck {
-        width:90%;
-        height: 350px;
-   }
-    .deck .card {
+        width: 300px;
+        height: 300px;
+    }
+    .card {
         height: 60px;
         width: 60px;
+    }
+    .score-panel {
+        width: 80%;
    }
+   .show {
+    font-size: 25px;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+    .deck {
+        width: 250px;
+        height: 250px;
+        padding: 5px;
+
+    }
+    .card {
+        height: 50px;
+        width: 50px;
+    }
     .score-panel {
         width: 90%;
-   }
-    #watch {
-        margin-left: 5px;
-   }
-    h1 {
-        font-weight: 100;
-        margin: 3px 0;
-   }
-    .congrats {
-        width: 250px;
-        height: 180px;
-        margin: -90px 0 0 -125px;
-        border-radius: 5px;
         font-size: 12px;
    }
-    .hide {
-        display: none;
+    .restart {
+        padding: 2px 4px;
+        font-size: 12px;
+
    }
+    h1 {
+        font-size: 1em;
+    }
+    .show {
+        font-size: 20px;
+    }
 }
+
+@media screen and (max-width: 250px) {
+    .deck {
+        width: 150px;
+        height: 150px;
+        padding: 3px;
+    }
+    .card {
+        height: 30px;
+        width: 30px;
+    }
+    .show {
+        font-size: 18px;
+    }
+}
+
+
+
+
