@@ -201,15 +201,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //function to calculate the star level according to moves number
     function starsLevel() {
-        if (movesNumber > 14) {
+        if (movesNumber > 26) {
             firstStar.classList.remove('gold-star');
             firstStarMessage.classList.remove('gold-star');
-        } else if (movesNumber > 20) {
             secondStar.classList.remove('gold-star');
             secondStarMessage.classList.remove('gold-star');
-        } else if (movesNumber > 26) {
             thirdStar.classList.remove('gold-star');
             thirdStarMessage.classList.remove('gold-star');
+        } else if (movesNumber > 20) {
+            firstStar.classList.remove('gold-star');
+            firstStarMessage.classList.remove('gold-star');
+            secondStar.classList.remove('gold-star');
+            secondStarMessage.classList.remove('gold-star');
+        } else if (movesNumber > 14) {
+            firstStar.classList.remove('gold-star');
+            firstStarMessage.classList.remove('gold-star');
         }
     }
     //function to start a new game after finishing one game
