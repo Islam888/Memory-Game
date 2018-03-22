@@ -244,7 +244,7 @@ button:hover {
     width: 80px;
     }
     .score-panel {
-        width: 80%;
+        width: 380px;
    }
     .restart {
         box-shadow: none;
@@ -253,6 +253,7 @@ button:hover {
     h1 {
         font-size: 1.5em;
     }
+
 }
 
 @media screen and (max-width: 400px) {
@@ -265,11 +266,25 @@ button:hover {
         width: 60px;
     }
     .score-panel {
-        width: 80%;
+        width: 300px;
    }
    .show {
     font-size: 25px;
     }
+    .congrats {
+        width: 300px;
+        height: 270px;
+        margin: -135px 0 0 -150px;
+        font-size: 16px;
+        top: 30%;
+   }
+    .hide {
+        display: none;
+   }
+    button {
+        padding: 8px 15px;
+        font-size: 16px;
+   }
 
 }
 
@@ -285,7 +300,7 @@ button:hover {
         width: 50px;
     }
     .score-panel {
-        width: 90%;
+        width: 250px;
         font-size: 12px;
    }
     .restart {
@@ -299,6 +314,12 @@ button:hover {
     .show {
         font-size: 20px;
     }
+    .congrats {
+        width: 250px;
+        height: 220px;
+        margin: -110px 0 0 -125px;
+        font-size: 16px;
+   }
 }
 
 @media screen and (max-width: 250px) {
@@ -311,8 +332,18 @@ button:hover {
         height: 30px;
         width: 30px;
     }
+    .score-panel {
+        width: 150px;
+        font-size: 10px;
+   }
+   .restart {
+       font-size: 10px;
+   }
     .show {
         font-size: 18px;
+    }
+    .restart-word {
+        display: none;
     }
 }
 
