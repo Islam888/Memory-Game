@@ -118,9 +118,8 @@ h1 {
 .gold-star {
     color: rgb(241, 206, 2);
 }
-
 .congrats {
-    background: #2e3d49;
+    background: #2e3d4994;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -168,7 +167,6 @@ button:hover {
     list-style: none;
     display: inline-block;
 }
-
 @media screen and (max-width: 610px) {
     .deck {
         width:500px;
@@ -182,9 +180,8 @@ button:hover {
    }
     .score-panel {
         width: 420px;
-   }    
+   }
 }
-
 @media screen and (max-width: 550px) {
     .deck {
         width: 450px;
@@ -231,7 +228,6 @@ button:hover {
         border-radius: 5px;
    }
 }
-
 @media screen and (max-width: 480px) {
     .deck {
         width: 380px;
@@ -239,38 +235,50 @@ button:hover {
         padding: 8px;
         box-shadow: none;
    }
-   .card {
-    height: 80px;
-    width: 80px;
-    }
+    .card {
+        height: 80px;
+        width: 80px;
+   }
     .score-panel {
         width: 380px;
    }
     .restart {
         box-shadow: none;
         font-size: 14px;
-    }
+   }
     h1 {
         font-size: 1.5em;
-    }
-
+   }
+    .congrats {
+        width: 380px;
+        height: 300px;
+        margin: -150px 0 0 -190px;
+        font-size: 16px;
+        top: 30%;
+   }
+    .hide {
+        display: none;
+   }
+    button {
+        padding: 8px 16px;
+        font-size: 16px;
+   }
 }
-
 @media screen and (max-width: 400px) {
     .deck {
         width: 300px;
         height: 300px;
-    }
+   }
     .card {
         height: 60px;
         width: 60px;
-    }
+   }
     .score-panel {
         width: 300px;
    }
-   .show {
-    font-size: 25px;
-    }
+    .show {
+        font-size: 25px;
+   }
     .congrats {
         width: 300px;
         height: 270px;
@@ -285,20 +293,17 @@ button:hover {
         padding: 8px 15px;
         font-size: 16px;
    }
-
 }
-
 @media screen and (max-width: 300px) {
     .deck {
         width: 250px;
         height: 250px;
         padding: 5px;
-
-    }
+   }
     .card {
         height: 50px;
         width: 50px;
-    }
+   }
     .score-panel {
         width: 250px;
         font-size: 12px;
@@ -306,47 +311,56 @@ button:hover {
     .restart {
         padding: 2px 4px;
         font-size: 12px;
-
    }
     h1 {
         font-size: 1em;
-    }
+   }
     .show {
         font-size: 20px;
-    }
+   }
     .congrats {
         width: 250px;
         height: 220px;
         margin: -110px 0 0 -125px;
         font-size: 16px;
+        top: 20%;
    }
 }
-
 @media screen and (max-width: 250px) {
     .deck {
         width: 150px;
         height: 150px;
         padding: 3px;
-    }
+   }
     .card {
         height: 30px;
         width: 30px;
-    }
+   }
     .score-panel {
         width: 150px;
         font-size: 10px;
    }
-   .restart {
-       font-size: 10px;
+    .restart {
+        font-size: 10px;
    }
     .show {
         font-size: 18px;
-    }
+   }
     .restart-word {
         display: none;
-    }
+   }
+    .congrats {
+        width: 150px;
+        height: 170px;
+        margin: -60px 0 0 -75px;
+        font-size: 12px;
+        top: 10%;
+   }
+    .hide {
+        display: none;
+   }
+    button {
+        padding: 4px 8px;
+        font-size: 12px;
+   }
 }
-
-
-
-
