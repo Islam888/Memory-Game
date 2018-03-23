@@ -206,17 +206,10 @@ document.addEventListener('DOMContentLoaded', function() {
             firstStarMessage.classList.remove('gold-star');
             secondStar.classList.remove('gold-star');
             secondStarMessage.classList.remove('gold-star');
-            thirdStar.classList.remove('gold-star');
-            thirdStarMessage.classList.remove('gold-star');
         } else if (movesNumber > 20) {
             firstStar.classList.remove('gold-star');
             firstStarMessage.classList.remove('gold-star');
-            secondStar.classList.remove('gold-star');
-            secondStarMessage.classList.remove('gold-star');
-        } else if (movesNumber > 14) {
-            firstStar.classList.remove('gold-star');
-            firstStarMessage.classList.remove('gold-star');
-        }
+        } 
     }
     //function to start a new game after finishing one game
     function playAgain() {
